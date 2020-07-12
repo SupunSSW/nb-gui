@@ -5,56 +5,42 @@ from PyQt5.QtWidgets import *
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-import dlib
-import cv2 as cv
-import math
-import numpy as np
-import os
-from imutils import face_utils
-from imutils.face_utils import FaceAligner
-
 import mysql.connector
 
 mydb = mysql.connector.connect(
   host="localhost",
   user="root",
-  passwd="s",
+  passwd="",
   database="nbdatabase"
 )
 
 mycursor = mydb.cursor()
 
-f
+
 class Window(QMainWindow):
     
     def launch(self):
-        # super().__init__()
-        self.title = "App"
-        self.top = 100
-        self.left = 100
-        self.width = 680
-        self.height = 500
-        self.InitUI()
+        Notices.setObjectName("Notices")
+        Notices.resize(1030, 698)
+        Notices.setStyleSheet("background-color: rgb(0, 0, 0);\n"
+"color: rgb(209, 209, 209);")
+        
 
-    def InitUI(self):
-        self.setWindowTitle(self.title)
-        self.setGeometry(self.top, self.left, self.width, self.height)
+        # buttonWindow1 = QPushButton('Window1', self)
+        # buttonWindow1.move(100, 100)
+        # buttonWindow1.clicked.connect(self.buttonWindow_onClick)
+        # self.lineEdit1 = QLineEdit("Type here what you want to transfer for [Window1].", self)
+        # self.lineEdit1.setGeometry(250, 100, 400, 30)
+        # self.show()
 
-        buttonWindow1 = QPushButton('Window1', self)
-        buttonWindow1.move(100, 100)
-        buttonWindow1.clicked.connect(self.buttonWindow_onClick)
-        self.lineEdit1 = QLineEdit("Type here what you want to transfer for [Window1].", self)
-        self.lineEdit1.setGeometry(250, 100, 400, 30)
-        self.show()
-
-    @pyqtSlot()
-    def buttonWindow_onClick(self):
-        self.statusBar().showMessage("Switched to window 1")
+    # @pyqtSlot()
+    # def buttonWindow_onClick(self):
+        # self.statusBar().showMessage("Switched to window 1")
         # self.cams = Window1() 
         # self.cams.launch1()
-        ex1.launch1()
+        # ex1.launch1()
         # self.cams.show()
-        self.close()
+        # self.close()
 
 
 class Window1(QMainWindow):
